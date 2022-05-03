@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Course - Teachers</title>
+	<?php require_once "header.php"; ?>
+	<link rel="stylesheet" type="text/css" href="styles/teachers_styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/teachers_responsive.css">
+</head>
+<style>
+	.bg-box-item {
+		background: rgba(255, 255, 255, 0.47);
+		/* border-radius: 16px; */
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(4.3px);
+		-webkit-backdrop-filter: blur(4.3px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+</style>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header d-flex flex-row">
+			<?php require_once "menu.php"; ?>
+		</header>
+
+		<!-- Menu -->
+		<div class="menu_container menu_mm">
+
+			<!-- Menu Close Button -->
+			<div class="menu_close_container">
+				<div class="menu_close"></div>
+			</div>
+
+			<!-- Menu Items -->
+			<div class="menu_inner menu_mm">
+				<div class="menu menu_mm">
+					<ul class="menu_list menu_mm">
+						<li class="menu_item menu_mm"><a href="index.html">Home</a></li>
+						<li class="menu_item menu_mm"><a href="about.html">About us</a></li>
+						<li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
+						<li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
+						<li class="menu_item menu_mm"><a href="news.html">News</a></li>
+						<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
+					</ul>
+
+					<!-- Menu Social -->
+
+					<div class="menu_social_container menu_mm">
+						<ul class="menu_social menu_mm">
+							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
+						</ul>
+					</div>
+
+					<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+			<div class="home_background_container prlx_parent">
+				<div class="home_background prlx" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/220224088495865_22041813132131.jpg);"></div>
+			</div>
+			<div class="home_content">
+				<h1>Teachers</h1>
+			</div>
+		</div>
+
+		<!-- Teachers -->
+
+		<div class="teachers page_section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_1.jpg" alt="https://unsplash.com/@michaeldam">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">Maria Smith</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_2.jpg" alt="https://unsplash.com/@jcpeacock">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">Christian Blue</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_3.jpg" alt="https://unsplash.com/photos/n8jeOSxCRfQ">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">James Brown</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_4.jpg" alt="https://unsplash.com/@seteales">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">Julie Denver</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_5.jpg" alt="https://unsplash.com/@jaredsluyter">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">Julie Denver</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Teacher -->
+					<div class="col-lg-4 teacher">
+						<div class="card">
+							<div class="card_img">
+								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
+								<img class="card-img-top trans_200" src="images/teacher_6.jpg" alt="https://unsplash.com/@mehdizadeh">
+							</div>
+							<div class="card-body text-center">
+								<div class="card-title"><a href="#">Julie Denver</a></div>
+								<div class="card-text">Graphic Designer</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Milestones -->
+
+		<div class="milestones">
+			<div class="milestones_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/220224088495865_22041813131736.jpg);"></div>
+
+			<div class="container">
+				<div class="row">
+
+					<!-- Milestone -->
+					<div class="col-lg-3 milestone_col bg-box-item">
+						<div class="milestone text-center">
+							<div class="milestone_icon"><img src="images/milestone_1.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
+							<div class="milestone_counter" data-end-value="750">0</div>
+							<div class="milestone_text text-dark">Current Students</div>
+						</div>
+					</div>
+
+					<!-- Milestone -->
+					<div class="col-lg-3 milestone_col bg-box-item">
+						<div class="milestone text-center">
+							<div class="milestone_icon"><img src="images/milestone_2.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
+							<div class="milestone_counter" data-end-value="120">0</div>
+							<div class="milestone_text text-dark">Certified Teachers</div>
+						</div>
+					</div>
+
+					<!-- Milestone -->
+					<div class="col-lg-3 milestone_col bg-box-item">
+						<div class="milestone text-center">
+							<div class="milestone_icon"><img src="images/milestone_3.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
+							<div class="milestone_counter" data-end-value="39">0</div>
+							<div class="milestone_text text-dark">Approved Courses</div>
+						</div>
+					</div>
+
+					<!-- Milestone -->
+					<div class="col-lg-3 milestone_col bg-box-item">
+						<div class="milestone text-center">
+							<div class="milestone_icon"><img src="images/milestone_4.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
+							<div class="milestone_counter" data-end-value="3500" data-sign-before="+">0</div>
+							<div class="milestone_text text-dark">Graduate Students</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Become -->
+
+		<div class="become">
+			<div class="container">
+				<div class="row row-eq-height">
+
+					<div class="col-lg-6 order-2 order-lg-1">
+						<div class="become_title">
+							<h1>Become a teacher</h1>
+						</div>
+						<p class="become_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies venenatis. Suspendisse fermentum sodales lacus, lacinia gravida elit dapibus sed. Cras in lectus elit. Maecenas tempus nunc vitae mi egestas venenatis. Aliquam rhoncus, purus in vehicula porttitor, lacus ante consequat purus, id elementum enim purus nec enim. In sed odio rhoncus, tristique ipsum id, pharetra neque.</p>
+						<div class="become_button text-center trans_200">
+							<a href="#">Read More</a>
+						</div>
+					</div>
+
+					<div class="col-lg-6 order-1 order-lg-2">
+						<div class="become_image">
+							<img src="images/become.jpg" alt="">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+
+		<?php require_once "footer.php"; ?>
+	</div>
+	<?php require_once "scripts.php" ?>
+</body>
+
+</html>
