@@ -47,12 +47,13 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = mysqli_fetch_array($res)) { ?>
+                                    <?php $i = 0;
+                                    while ($row = mysqli_fetch_array($res)) { ?>
                                         <tr>
-                                            <th><?php echo $row["type_id"] ?></th>
-                                            <th><?php echo $row["type_name"] ?></th>
-                                            <th><a href="course_type_edit_form.php" class="btn btn-warning"><i class="fas fa-edit"></i></a></th>
-                                            <th><button type_id="<?php echo $row["type_id"] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></th>
+                                            <th><?php echo ++$i; ?></th>
+                                            <th><?php echo $row["type_name"]; ?></th>
+                                            <th><a href="course_type_edit_form.php?type_id=<?php echo $row["type_id"] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a></th>
+                                            <th><button type_id="<?php echo $row["type_id"]; ?>" class="btn btn-danger btnDelType"><i class="fas fa-trash-alt"></i></button></th>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -91,5 +92,24 @@
         $("#list_type").DataTable({
             "scrollX": true
         });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $(".btnDelType").click(function() {
+            let type_id = $(this).attr("type_id")
+            Swal.fire({
+                title: 'ต้องการลบรายการใช่หรือไม่ ?',
+                showCancelButton: true,
+                confirmButtonText: 'ลบ',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.redirect('course_type_del.php', {
+                        'type_id': type_id
+                    });
+                }
+            })
+        })
     });
 </script>
