@@ -67,7 +67,7 @@
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo $row["course_name"]; ?></td>
-                                            <td><?php echo "เรื่ม " . DateThai($dateArrStrat[0]) . "<br>เวลา " . $dateArrStrat[1]; ?></td>
+                                            <td><?php echo "เรื่ม " . DateThai($dateArrStrat[0]) . "<br>เวลา " . $dateArrStrat[1]; ?><?php echo "<br>จบ " . DateThai($dateArrEnd[0]) . "<br>เวลา " . $dateArrEnd[1]; ?></td>
                                             <td><?php echo $row["location"]; ?></td>
                                             <td><a href="detail_course.php?course_id=<?php echo $row["course_id"]; ?>" class="btn btn-info"><i class="fas fa-eye"></i></a></td>
                                             <td><a href="edit_train.php?course_id=<?php echo $row["course_id"]; ?>" class="btn btn-warning">แก้ไข</a></td>

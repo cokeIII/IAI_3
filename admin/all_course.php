@@ -43,11 +43,14 @@
                             <th>รายชื่อผู้เข้าอบรม</th>
                         </thead>
                         <tbody>
-                            <?php while ($row = mysqli_fetch_array($res)) { ?>
+                            <?php while ($row = mysqli_fetch_array($res)) {
+                                $dateArrStrat = explode(" ", $row["start_date"]);
+                                $dateArrEnd = explode(" ", $row["end_date"]);
+                            ?>
                                 <tr>
                                     <td width="45%"><?php echo $row["course_name"]; ?></td>
                                     <td><a href="detail_course.php?course_id=<?php echo $row["course_id"]; ?>" class="">รายละเอียด</a></td>
-                                    <td><?php echo "เริ่ม " . $row["start_date"] . "<br> ถึง " . $row["end_date"]; ?></td>
+                                    <td><?php echo "เรื่ม " . DateThai($dateArrStrat[0]) . "<br>เวลา " . $dateArrStrat[1]; ?><?php echo "<br>จบ " . DateThai($dateArrEnd[0]) . "<br>เวลา " . $dateArrEnd[1]; ?></td>
                                     <td><a href="list_name_course.php?course_id=<?php echo $row["course_id"]; ?>">ดูรายชื่อ</a></td>
                                 </tr>
                             <?php } ?>
