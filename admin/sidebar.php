@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <?php session_start(); ?>
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon">
             <img src="../images/logo2.png" alt="" width="auto" height="40">
         </div>
@@ -100,21 +100,21 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="list_course_cer.php">
             <i class="fas fa-certificate"></i>
             <span>ตั้งค่าใบวุฒิบัตร</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="bullhorn.php">
             <i class="fas fa-bullhorn"></i>
             <span>ประชาสัมพันธ์</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="receipt_admin.php">
             <i class="fas fa-receipt"></i>
             <span>ใบเสร็จ</span></a>
     </li>

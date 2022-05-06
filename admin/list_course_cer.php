@@ -33,9 +33,11 @@
                     ?>
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">รายการอบรม</h1>
+                        <h1 class="h3 mb-0 text-gray-800">ตั้งค่าวุฒิบัตร</h1>
                     </div>
-                    <div class="card shadow mb-5">
+
+                    <!-- Content Row -->
+                    <div class="card">
                         <div class="card-body">
                             <table id="course_all" class="table table-striped" width="100%">
                                 <thead>
@@ -48,12 +50,13 @@
                                     <?php while ($row = mysqli_fetch_array($res)) {
                                         $dateArrStrat = explode(" ", $row["start_date"]);
                                         $dateArrEnd = explode(" ", $row["end_date"]);
+                                               
                                     ?>
                                         <tr>
                                             <td width="45%"><?php echo $row["course_name"]; ?></td>
                                             <td><a href="detail_course.php?course_id=<?php echo $row["course_id"]; ?>" class="">รายละเอียด</a></td>
                                             <td><?php echo "เรื่ม " . DateThai($dateArrStrat[0]) . "<br>เวลา " . $dateArrStrat[1]; ?><?php echo "<br>จบ " . DateThai($dateArrEnd[0]) . "<br>เวลา " . $dateArrEnd[1]; ?></td>
-                                            <td><a href="list_name_course.php?course_id=<?php echo $row["course_id"]; ?>">ดูรายชื่อ</a></td>
+                                            <td><a href="cer_set_from.php?course_id=<?php echo $row["course_id"]; ?>">ตั้งค่าวุฒิบัตร</a></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -62,7 +65,6 @@
                     </div>
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 

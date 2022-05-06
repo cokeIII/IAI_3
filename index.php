@@ -80,37 +80,22 @@
 			<!-- Hero Slider -->
 			<div class="hero_slider_container range-slider-track">
 				<div class="hero_slider owl-carousel">
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/s1.jpg);"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">ยกระดับขีดความสามารถ</h1>
+					<?php
+					require_once "connect.php";
+					$sqlSlide = "select * from pic_slide";
+					$resSlide = mysqli_query($conn, $sqlSlide);
+					while ($rowSlide = mysqli_fetch_array($resSlide)) {
+					?>
+						<!-- Hero Slide -->
+						<div class="hero_slide">
+							<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/<?php echo $rowSlide["pic_path"]; ?>);"></div>
+							<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+								<div class="hero_slide_content text-center">
+									<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">ยกระดับขีดความสามารถ</h1>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/slide4.jpg);"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class=" hero_slide_content text-center">
-								<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">พัฒนาทักษะ</h1>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/slide3.jpg)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">AI อาชีวะ</h1>
-							</div>
-						</div>
-					</div>
-
+					<?php } ?>
 				</div>
 
 				<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">prev</span></div>
