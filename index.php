@@ -78,12 +78,11 @@
 			<div class="hero_boxes_inner">
 				<div class="container">
 					<div class="row">
-
 						<div class="col-lg-4 hero_box_col">
 							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-								<img src="images/earth-globe.svg" class="svg" alt="">
+								<img src="images/books.svg" class="svg" alt="">
 								<div class="hero_box_content">
-									<h2 class="hero_box_title">Online Courses</h2>
+									<h2 class="hero_box_title">Courses</h2>
 									<a href="courses.php" class="hero_box_link">view more</a>
 								</div>
 							</div>
@@ -91,9 +90,9 @@
 
 						<div class="col-lg-4 hero_box_col">
 							<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-								<img src="images/books.svg" class="svg" alt="">
+								<img src="images/earth-globe.svg" class="svg" alt="">
 								<div class="hero_box_content">
-									<h2 class="hero_box_title">Our Library</h2>
+									<h2 class="hero_box_title">News</h2>
 									<a href="courses.html" class="hero_box_link">view more</a>
 								</div>
 							</div>
@@ -164,7 +163,7 @@
 											<img src="file_uploads/lecturer/<?php echo $lecturerArr["img"]; ?>" class="img-ta">
 										<?php } ?>
 									</div>
-									<div class="course_author_name"><a href="#"><?php echo $lecturerArr["name"]; ?></a></div>
+									<div class="course_author_name"><a href="teacher_detail.php?id_card=<?php echo $lecturer[0]; ?>"><?php echo $lecturerArr["name"]; ?></a></div>
 									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><?php echo ($rowCou["expenses"] > 0 ? $rowCou["expenses"] . " บาท" : "FREE"); ?></span></div>
 								</div>
 							</div>
@@ -224,7 +223,7 @@
 
 		<!-- Services -->
 
-		<div class="services page_section">
+		<!-- <div class="services page_section">
 
 			<div class="container">
 				<div class="row">
@@ -287,7 +286,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Testimonials -->
 
@@ -489,15 +488,4 @@
 
 </html>
 <script>
-	window.onload = function() {
-		var span = document.createElement('span');
-
-		span.className = 'fa';
-		span.style.display = 'none';
-		document.body.insertBefore(span, document.body.firstChild);
-
-		alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
-
-		document.body.removeChild(span);
-	};
 </script>

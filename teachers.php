@@ -27,45 +27,10 @@
 		<header class="header d-flex flex-row">
 			<?php require_once "menu.php"; ?>
 		</header>
-		
+
 		<!-- Menu -->
-		<div class="menu_container menu_mm">
+		<?php require_once "menu_mm.php"; ?>
 
-			<!-- Menu Close Button -->
-			<div class="menu_close_container">
-				<div class="menu_close"></div>
-			</div>
-
-			<!-- Menu Items -->
-			<div class="menu_inner menu_mm">
-				<div class="menu menu_mm">
-					<ul class="menu_list menu_mm">
-						<li class="menu_item menu_mm"><a href="index.html">Home</a></li>
-						<li class="menu_item menu_mm"><a href="about.html">About us</a></li>
-						<li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
-						<li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
-						<li class="menu_item menu_mm"><a href="news.html">News</a></li>
-						<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-					</ul>
-
-					<!-- Menu Social -->
-
-					<div class="menu_social_container menu_mm">
-						<ul class="menu_social menu_mm">
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-						</ul>
-					</div>
-
-					<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
-				</div>
-
-			</div>
-
-		</div>
 
 		<!-- Home -->
 
@@ -83,91 +48,26 @@
 		<div class="teachers page_section">
 			<div class="container">
 				<div class="row">
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_1.jpg">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">Maria Smith</a></div>
-								<div class="card-text">Graphic Designer</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_2.jpg" alt="https://unsplash.com/@jcpeacock">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">Christian Blue</a></div>
-								<div class="card-text">Graphic Designer</div>
+					<?php
+					require_once "admin/function.php";
+					$sqlTea = "select * from lecturer";
+					$resTea = mysqli_query($conn, $sqlTea);
+					while ($rowTea = mysqli_fetch_array($resTea)) {
+					?>
+						<!-- Teacher -->
+						<div class="col-lg-4 teacher">
+							<div class="card">
+								<div class="card_img">
+									<!-- <div class="card_plus trans_200 text-center"><a href="#">+</a></div> -->
+									<img class="card-img-top trans_200" src="file_uploads/lecturer/<?php echo $rowTea["pic"]; ?>" width="auto" height="355">
+								</div>
+								<div class="card-body text-center">
+									<div class="card-title"><a href="teacher_detail.php?id_card=<?php echo $rowTea["id_card"];?>"><?php echo $rowTea["prefix"] . $rowTea["first_name"] . " " . $rowTea["last_name"]; ?></a></div>
+									<div class="card-text"><?php echo $rowTea["current_position"]; ?></div>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_3.jpg" alt="https://unsplash.com/photos/n8jeOSxCRfQ">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">James Brown</a></div>
-								<div class="card-text">Graphic Designer</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_4.jpg" alt="https://unsplash.com/@seteales">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">Julie Denver</a></div>
-								<div class="card-text">Graphic Designer</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_5.jpg" alt="https://unsplash.com/@jaredsluyter">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">Julie Denver</a></div>
-								<div class="card-text">Graphic Designer</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Teacher -->
-					<div class="col-lg-4 teacher">
-						<div class="card">
-							<div class="card_img">
-								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_6.jpg" alt="https://unsplash.com/@mehdizadeh">
-							</div>
-							<div class="card-body text-center">
-								<div class="card-title"><a href="#">Julie Denver</a></div>
-								<div class="card-text">Graphic Designer</div>
-							</div>
-						</div>
-					</div>
-
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -183,17 +83,17 @@
 					<!-- Milestone -->
 					<div class="col-lg-3 milestone_col bg-box-item">
 						<div class="milestone text-center">
-							<div class="milestone_icon"><img src="images/milestone_1.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
-							<div class="milestone_counter" data-end-value="750">0</div>
-							<div class="milestone_text text-dark">Current Students</div>
+							<div class="milestone_icon mt-2"><img src="images/milestone_1.svg"></div>
+							<div class="milestone_counter"><?php echo  countUsers(); ?></div>
+							<div class="milestone_text text-dark">Current Users</div>
 						</div>
 					</div>
 
 					<!-- Milestone -->
 					<div class="col-lg-3 milestone_col bg-box-item">
 						<div class="milestone text-center">
-							<div class="milestone_icon"><img src="images/milestone_2.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
-							<div class="milestone_counter" data-end-value="120">0</div>
+							<div class="milestone_icon mt-2"><img src="images/milestone_2.svg"></div>
+							<div class="milestone_counter"><?php echo  countLecturer(); ?></div>
 							<div class="milestone_text text-dark">Certified Teachers</div>
 						</div>
 					</div>
@@ -201,8 +101,8 @@
 					<!-- Milestone -->
 					<div class="col-lg-3 milestone_col bg-box-item">
 						<div class="milestone text-center">
-							<div class="milestone_icon"><img src="images/milestone_3.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
-							<div class="milestone_counter" data-end-value="39">0</div>
+							<div class="milestone_icon mt-2"><img src="images/milestone_3.svg"></div>
+							<div class="milestone_counter"><?php echo  countCourse(); ?></div>
 							<div class="milestone_text text-dark">Approved Courses</div>
 						</div>
 					</div>
@@ -210,9 +110,9 @@
 					<!-- Milestone -->
 					<div class="col-lg-3 milestone_col bg-box-item">
 						<div class="milestone text-center">
-							<div class="milestone_icon"><img src="images/milestone_4.svg" alt="https://www.flaticon.com/authors/zlatko-najdenovski"></div>
-							<div class="milestone_counter" data-end-value="3500" data-sign-before="+">0</div>
-							<div class="milestone_text text-dark">Graduate Students</div>
+							<div class="milestone_icon mt-2"><img src="images/milestone_4.svg"></div>
+							<div class="milestone_counter"><?php echo  countPass(); ?></div>
+							<div class="milestone_text text-dark">Graduate Users</div>
 						</div>
 					</div>
 
@@ -222,7 +122,7 @@
 
 		<!-- Become -->
 
-		<div class="become">
+		<!-- <div class="become">
 			<div class="container">
 				<div class="row row-eq-height">
 
@@ -244,7 +144,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Footer -->
 

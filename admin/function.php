@@ -1,5 +1,33 @@
 <?php
 require_once "connect.php";
+function countUsers(){
+    global $conn;
+    $sql = "select count(id_card) as currentUsers from users where id_card != 'admin'";
+    $res = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($res);
+    return $row["currentUsers"];
+}
+function countLecturer(){
+    global $conn;
+    $sql = "select count(id_card) as certifiedTeachers from lecturer";
+    $res = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($res);
+    return $row["certifiedTeachers"];
+}
+function countCourse(){
+    global $conn;
+    $sql = "select count(course_id) as approvedCourses from course where status = 'on'";
+    $res = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($res);
+    return $row["approvedCourses"];
+}
+function countPass(){
+    global $conn;
+    $sql = "select count(id_card) as graduateUsers from course_regis where status = 'pass'";
+    $res = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($res);
+    return $row["graduateUsers"];
+}
 function getDataLecturer($id_card)
 {
     global $conn;
