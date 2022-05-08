@@ -7,9 +7,17 @@ function getDataLecturer($id_card)
     $sql = "select * from lecturer where id_card = '$id_card'";
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
+    $numRow = mysqli_num_rows($res);
     $data = array();
-    $data["name"]  = $row["prefix"].$row["first_name"]." ".$row["last_name"];
-    $data["img"] = $row["pic"];
+
+    if ($numRow > 0) {
+        $data["name"]  = $row["prefix"] . $row["first_name"] . " " . $row["last_name"];
+        $data["img"] = $row["pic"];
+    } else {
+        $data["name"] = "";
+        $data["img"] = "";
+    }
+
     return $data;
 }
 function DateThai($strDate)

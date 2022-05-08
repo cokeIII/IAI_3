@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 	<?php require_once "header.php"; ?>
 </head>
@@ -22,56 +23,25 @@
 	.range-slider-track {
 		touch-action: none;
 	}
+
+	.img-ta {
+		background-size: cover !important;
+		background-position: center !important;
+		width: 50px;
+		height: auto;
+	}
 </style>
 
 <body>
 
 	<div class="super_container">
-
 		<!-- Header -->
 
 		<header class="header d-flex flex-row">
 			<?php require_once "menu.php"; ?>
 		</header>
 
-		<!-- Menu -->
-		<div class="menu_container menu_mm">
-
-			<!-- Menu Close Button -->
-			<div class="menu_close_container">
-				<div class="menu_close"></div>
-			</div>
-
-			<!-- Menu Items -->
-			<div class="menu_inner menu_mm">
-				<div class="menu menu_mm">
-					<ul class="menu_list menu_mm">
-						<li class="menu_item menu_mm"><a href="#">Home</a></li>
-						<li class="menu_item menu_mm"><a href="#">About us</a></li>
-						<li class="menu_item menu_mm"><a href="courses.html">Courses</a></li>
-						<li class="menu_item menu_mm"><a href="elements.html">Elements</a></li>
-						<li class="menu_item menu_mm"><a href="news.html">News</a></li>
-						<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
-					</ul>
-
-					<!-- Menu Social -->
-
-					<div class="menu_social_container menu_mm">
-						<ul class="menu_social menu_mm">
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-						</ul>
-					</div>
-
-					<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
-				</div>
-
-			</div>
-
-		</div>
+		<?php require_once "menu_mm.php"; ?>
 
 		<!-- Home -->
 
@@ -81,17 +51,17 @@
 			<div class="hero_slider_container range-slider-track">
 				<div class="hero_slider owl-carousel">
 					<?php
-					require_once "connect.php";
+					require_once "admin/function.php";
 					$sqlSlide = "select * from pic_slide";
 					$resSlide = mysqli_query($conn, $sqlSlide);
 					while ($rowSlide = mysqli_fetch_array($resSlide)) {
 					?>
 						<!-- Hero Slide -->
 						<div class="hero_slide">
-							<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(images/<?php echo $rowSlide["pic_path"]; ?>);"></div>
+							<div class="hero_slide_background" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),url(file_uploads/img_slide/<?php echo $rowSlide["pic_path"]; ?>);"></div>
 							<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 								<div class="hero_slide_content text-center">
-									<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">ยกระดับขีดความสามารถ</h1>
+									<h1 class="h1-slide bg-slide" data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut"><?php echo $rowSlide["pic_text"]; ?></h1>
 								</div>
 							</div>
 						</div>
@@ -157,60 +127,49 @@
 				</div>
 
 				<div class="row course_boxes">
-
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/20220225065751pm.jpg" width="auto" height="260">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 3</a></div>
-								<div class="card-text">Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</div>
-							</div>
-							<div class="price_box d-flex flex-row align-items-center">
-								<div class="course_author_image">
-									<img src="images/person.png" alt="https://unsplash.com/@mehdizadeh">
+					<?php
+					$sqlPop = "select course_id
+						from course_regis 
+						group by course_id
+						order by count(id_card)
+						limit 3
+						";
+					$resPop = mysqli_query($conn, $sqlPop);
+					while ($rowPop = mysqli_fetch_array($resPop)) {
+						$course_id = $rowPop["course_id"];
+						$sqlCou = "select * from course where course_id = '$course_id'";
+						$resCou = mysqli_query($conn, $sqlCou);
+						$rowCou = mysqli_fetch_array($resCou);
+						if ($rowCou["lecturer"]) {
+							$lecturer = explode(",", $rowCou["lecturer"]);
+						} else {
+							$lecturer[1] = "";
+						}
+						$lecturerArr = getDataLecturer($lecturer[0]);
+					?>
+						<!-- Popular Course Item -->
+						<div class="col-lg-4 course_box">
+							<div class="card">
+								<img class="card-img-top" src="file_uploads/img/<?php echo $rowCou["pic"]; ?>" width="auto" height="260">
+								<div class="card-body text-center">
+									<div class="card-title"><a href="courses.html"><?php echo $rowCou["course_name"]; ?></a></div>
+									<!-- <div class="card-text"><?php //echo $rowCou["principle"]; 
+																?></div> -->
 								</div>
-								<div class="course_author_name"><a href="#">วิทยากร</a> <span>Author</span></div>
-								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>FREE</span></div>
+								<div class="price_box d-flex flex-row align-items-center">
+									<div class="course_author_image">
+										<?php if (empty($lecturerArr["img"])) { ?>
+											<img src="images/person.png" class="img-ta">
+										<?php } else { ?>
+											<img src="file_uploads/lecturer/<?php echo $lecturerArr["img"]; ?>" class="img-ta">
+										<?php } ?>
+									</div>
+									<div class="course_author_name"><a href="#"><?php echo $lecturerArr["name"]; ?></a></div>
+									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><?php echo ($rowCou["expenses"] > 0 ? $rowCou["expenses"] . " บาท" : "FREE"); ?></span></div>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/20220225065751pm.jpg" width="auto" height="260">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 2</a></div>
-								<div class="card-text">Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</div>
-							</div>
-							<div class="price_box d-flex flex-row align-items-center">
-								<div class="course_author_image">
-									<img src="images/person.png" alt="https://unsplash.com/@mehdizadeh">
-								</div>
-								<div class="course_author_name"><a href="#">วิทยากร</a><span> Author</span></div>
-								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>FREE</span></div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/20220225065751pm.jpg" width="auto" height="260">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 1</a></div>
-								<div class="card-text">Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</div>
-							</div>
-							<div class="price_box d-flex flex-row align-items-center">
-								<div class="course_author_image">
-									<img src="images/person.png" alt="https://unsplash.com/@mehdizadeh">
-								</div>
-								<div class="course_author_name"><a href="#">วิทยากร</a> <span>Author</span></div>
-								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>FREE</span></div>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -530,5 +489,15 @@
 
 </html>
 <script>
+	window.onload = function() {
+		var span = document.createElement('span');
 
+		span.className = 'fa';
+		span.style.display = 'none';
+		document.body.insertBefore(span, document.body.firstChild);
+
+		alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
+
+		document.body.removeChild(span);
+	};
 </script>

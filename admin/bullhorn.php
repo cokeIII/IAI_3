@@ -40,14 +40,15 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <h3>ตั้งค่ารูปสไลด์</h3>
                                     <hr>
-                                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalSlide">เพิ่มข้อมูล</button>
+                                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalSlide" id="insertPicSlide">เพิ่มข้อมูล</button>
                                     <table id="slide" class="table" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>วันที่ลง</th>
+                                                <th>ข้อความ</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
@@ -56,15 +57,22 @@
                                             <?php while ($row = mysqli_fetch_array($res)) { ?>
                                                 <tr>
                                                     <td><?php echo $row["time_stamp"]; ?></td>
-                                                    <td><a target="_blank" href="file_uploads/img_slide/<?php echo $row["pic_path"]; ?>">ดูรูปภาพ</a></td>
+                                                    <td><?php echo $row["pic_text"]; ?></td>
+                                                    <td><a target="_blank" href="../file_uploads/img_slide/<?php echo $row["pic_path"]; ?>">ดูรูปภาพ</a></td>
                                                     <td><button pic_id="<?php echo $row["pic_id"]; ?>" class="btnDelSlide btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-md-6 border-left">
-                                    <h3>ตั้งค่าประชาสัมพันธ์</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>ตั้งค่าข่าวประชาสัมพันธ์</h3>
                                     <hr>
                                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalBullhorn">เพิ่มข้อมูล</button>
                                     <table id="bullhorn" class="table" width="100%">
@@ -133,9 +141,13 @@
                 <form action="pic_slide_add.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">
-                            <h4>เพิ่มรูปภาพ(เลือกได้มากกว่า 1 รูป)</h4>
+                            <h4>เพิ่มรูปภาพ</h4>
                         </label>
                         <input class="form-control" type="file" name="pic_slide[]" multiple accept="image/*" />
+                        <label class="mt-3">
+                            <h4>ข้อความที่แสดง</h4>
+                        </label>
+                        <input type="text" name="pic_text" id="pic_text" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">เพิ่มรูป</button>
                 </form>
@@ -223,7 +235,7 @@
             });
             $res += '</div>';
             $("#picBullShow").html($res)
-            $('#picBull').modal('show');
+            $('#picBull').modal('show')
         })
         $("#slide").DataTable({
             "scrollX": true

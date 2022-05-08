@@ -22,10 +22,12 @@
     </nav>
 </div>
 <div class="header_side d-flex flex-row justify-content-center align-items-center">
-    <a class="text-white" href="login.php"><h3>LOGIN</h3></a>
+    <a class="text-white" href="login.php">
+        <h3>LOGIN</h3>
+    </a>
 </div>
 
 <!-- Hamburger -->
 <div class="hamburger_container">
-    <i class="fas fa-bars trans_200"></i>
+    <i class="fas fa-bars" aria-hidden="true"></i>
 </div>

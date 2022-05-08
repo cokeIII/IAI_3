@@ -27,7 +27,7 @@
 		<header class="header d-flex flex-row">
 			<?php require_once "menu.php"; ?>
 		</header>
-
+		
 		<!-- Menu -->
 		<div class="menu_container menu_mm">
 
@@ -89,7 +89,7 @@
 						<div class="card">
 							<div class="card_img">
 								<div class="card_plus trans_200 text-center"><a href="#">+</a></div>
-								<img class="card-img-top trans_200" src="images/teacher_1.jpg" alt="https://unsplash.com/@michaeldam">
+								<img class="card-img-top trans_200" src="images/teacher_1.jpg">
 							</div>
 							<div class="card-body text-center">
 								<div class="card-title"><a href="#">Maria Smith</a></div>

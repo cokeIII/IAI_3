@@ -12,6 +12,7 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/jquery.redirect.js"></script>
