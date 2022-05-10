@@ -151,7 +151,7 @@
 							<div class="card">
 								<img class="card-img-top" src="file_uploads/img/<?php echo $rowCou["pic"]; ?>" width="auto" height="260">
 								<div class="card-body text-center">
-									<div class="card-title"><a href="courses.html"><?php echo $rowCou["course_name"]; ?></a></div>
+									<div class="card-title"><a href="course_detail.php?course_id=<?php echo $course_id; ?>"><?php echo $rowCou["course_name"]; ?></a></div>
 									<!-- <div class="card-text"><?php //echo $rowCou["principle"]; 
 																?></div> -->
 								</div>

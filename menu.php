@@ -1,3 +1,10 @@
+<?php session_start(); ?>
+<style>
+    .text-name {
+        font-size: 20px;
+        color: white;
+    }
+</style>
 <div class="header_content d-flex flex-row align-items-center">
     <!-- Logo -->
     <div class="logo_container">
@@ -22,9 +29,16 @@
     </nav>
 </div>
 <div class="header_side d-flex flex-row justify-content-center align-items-center">
-    <a class="text-white" href="login.php">
-        <h3>LOGIN</h3>
-    </a>
+    <?php if (empty($_SESSION["id_card"])) { ?>
+        <a class="text-white" href="login.php">
+            <h3>LOGIN</h3>
+        </a>
+    <?php } else { ?>
+        <a href="profile.php?id_card=<?php echo $_SESSION["id_card"]; ?>">
+            <div class="text-name"><?php echo $_SESSION["username"]; ?></div>
+        </a>
+    <?php } ?>
+
 </div>
 
 <!-- Hamburger -->

@@ -15,8 +15,14 @@
         height: auto;
     }
 
-    .height-box{
-        /* height: 250px !important; */
+    .cut-text {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        height: 50px;
     }
 </style>
 
@@ -70,11 +76,11 @@
                         $lecturerArr = getDataLecturer($lecturer[0]);
                     ?>
                         <!-- Popular Course Item -->
-                        <div class="col-lg-4 course_box height-box">
+                        <div class="col-lg-4 course_box ">
                             <div class="card">
                                 <img class="card-img-top" src="file_uploads/img/<?php echo $rowCou["pic"]; ?>" width="auto" height="260">
                                 <div class="card-body text-center">
-                                    <div class="card-title"><a href="courses.html"><?php echo $rowCou["course_name"]; ?></a></div>
+                                    <div class="card-title cut-text"><a href="course_detail.php?course_id=<?php echo $rowCou["course_id"];?>"><?php echo $rowCou["course_name"]; ?></a></div>
                                     <!-- <div class="card-text"><?php //echo $rowCou["principle"]; 
                                                                 ?></div> -->
                                 </div>
