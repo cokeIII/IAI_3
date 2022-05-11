@@ -17,6 +17,9 @@
 						<!-- <li class="menu_item menu_mm"><a href="elements.html">Elements</a></li> -->
 						<li class="menu_item menu_mm"><a href="news.php">News</a></li>
 						<li class="menu_item menu_mm"><a href="contact.php">Contact</a></li>
+						<?php if (!empty($_SESSION["id_card"])) { ?>
+							<li class="menu_item menu_mm"><a href="list_train_regis.php">Registered course</a></li>
+						<?php } ?>
 						<?php if (empty($_SESSION["id_card"])) { ?>
 							<li class="menu_item menu_mm"><a href="login.php">Login</a></li>
 

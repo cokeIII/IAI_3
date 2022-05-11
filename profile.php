@@ -42,7 +42,8 @@
     .mt-custom {
         margin-top: 10%;
     }
-    label{
+
+    label {
         font-size: 18px;
     }
 </style>
@@ -84,7 +85,7 @@
                         <form id="form-regis" method="POST">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <img class="img-thumbnail shadow mb-2" width="250" height="250" src="file_uploads/user/<?php echo (empty($row["pic"]) ? "user.png" : $row["pic"]); ?>" alt="">
+                                    <img class="img-thumbnail shadow mb-2" width="250" height="250" src="file_uploads/user/<?php echo (empty($row["pic"]) ? "user.png" : $row["pic"] . '?t=' . time()); ?>" alt="">
                                 </div>
                             </div>
                             <div class="row">

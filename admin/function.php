@@ -174,6 +174,7 @@ function getNameUser($id_card)
 function calPercent($id_card, $course_id)
 {
     global $conn;
+    $ret = 0;
     $sqlTable = "select * from time_table where course_id = '$course_id'";
     $resTable = mysqli_query($conn, $sqlTable);
     $numTable = 0;
@@ -201,8 +202,10 @@ function calPercent($id_card, $course_id)
             $numLog++;
         }
     }
-
-    return number_format((float)($numLog * 100 / $numTable), 2, '.', '');
+    if($ret > 0) {
+        $ret = number_format((float)($numLog * 100 / $numTable), 2, '.', '');
+    }
+    return $ret;
 }
 
 function checkDoc($id_card, $time_id)
@@ -234,6 +237,20 @@ function checkVideo($id_card, $time_id)
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
     $ret = $row["time_stamp"];
+    return $ret;
+}
+function checkBank($id_card, $course_id)
+{
+    $ret = "";
+    global $conn;
+    $sql = "select * from bank where id_card='$id_card' and course_id = '$course_id'";
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($res);
+    if(!empty($row["evidence"]) && empty($row["receipt"])){
+        $ret = "ส่งหลักฐานแล้ว";
+    } else if(!empty($row["evidence"]) && !empty($row["receipt"])){
+        $ret = $row["receipt"];
+    }
     return $ret;
 }
 function checkTime($id_card, $course_id)

@@ -190,6 +190,12 @@
                         </label>
                         <textarea class="form-control" name="detail" id="" cols="30" rows="10" required></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="detail">
+                            <h4>รายละเอียด</h4>
+                        </label>
+                        <textarea class="form-control" name="detail" id="" cols="30" rows="10" required></textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary float-right">เพิ่มข้อมูล</button>
                 </form>
             </div>

@@ -4,7 +4,8 @@
         font-size: 20px;
         color: white;
     }
-    .border-logout{
+
+    .border-logout {
         border-left: 2px solid white;
     }
 </style>
@@ -26,6 +27,9 @@
                 <!-- <li class="main_nav_item"><a href="elements.html">elements</a></li> -->
                 <li class="main_nav_item"><a href="news.php">news</a></li>
                 <li class="main_nav_item"><a href="contact.php">contact</a></li>
+                <?php if (!empty($_SESSION["id_card"])) { ?>
+                    <li class="main_nav_item"><a href="list_train_regis.php">Registered course</a></li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
@@ -39,7 +43,7 @@
         <a href="profile.php?id_card=<?php echo $_SESSION["id_card"]; ?>">
             <div class="text-name"><?php echo $_SESSION["username"]; ?></div>
         </a>
-        <div class="border-logout h-100 m-3"></div>
+        <div class="border-logout h-75 m-3"></div>
         <a href="logout.php" class="text-center">
             <div class="text-name"> Logout</div>
         </a>

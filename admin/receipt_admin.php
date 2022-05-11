@@ -28,7 +28,7 @@
                 <div class="container-fluid">
                     <?php
                     require_once "function.php";
-                    $sql = "select * from bank b
+                    $sql = "select *,b.time_stamp as tb from bank b
                     inner join users u on b.id_card = u.id_card
                     ";
                     $res = mysqli_query($conn, $sql);
@@ -61,7 +61,7 @@
                                         <tr>
                                             <td><?php echo $row["prefix"] . $row["first_name_th"] . " " . $row["last_name_th"]; ?></td>
                                             <td><?php echo getNameCourse($row["course_id"]); ?></td>
-                                            <td><?php echo $row["time_stamp"]; ?></td>
+                                            <td><?php echo $row["tb"]; ?></td>
                                             <td><a target="_blank" href="../file_uploads/bank/<?php echo $row["evidence"]; ?>" alt="">ดูหลักฐาน</a></td>
                                             <td><?php echo (empty($row["receipt"]) ? "ยังไม่ได้รับใบเสร็จ" : '<a target="_blank" href="../file_uploads/receipt/' . $row["receipt"] . '" alt="">ดูใบเสร็จ</a>'); ?></td>
                                             <td>

@@ -50,7 +50,7 @@
                             <h3>ประวัติการเข้ากิจกรรมของ <span id="nameUser"><?php echo getNameUser($id_card); ?></span></h3>
                             <table id="log_user" class="table table-striped" width="100%">
                                 <thead>
-                                    <tr> 
+                                    <tr>
                                         <th>วันเวลากิจกรรม</th>
                                         <th>ชื่อกิจกรรม</th>
                                         <th>วันเวลาที่เข้าดูเอกสาร</th>
@@ -169,13 +169,14 @@
                         },
                         success: function(result) {
                             if (result == "OK") {
-                                Swal.fire({
-                                    // position: 'top-end',
-                                    icon: 'success',
-                                    title: 'บันทึกสำเร็จ',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
+                                // Swal.fire({
+                                //     // position: 'top-end',
+                                //     icon: 'success',
+                                //     title: 'บันทึกสำเร็จ',
+                                //     showConfirmButton: false,
+                                //     timer: 1500
+                                // })
+                                window.location.replace("log_user.php?id_card=<?php echo $id_card; ?>&course_id=<?php echo $course_id; ?>");
                             } else {
                                 Swal.fire({
                                     // position: 'top-end',
@@ -212,13 +213,15 @@
                         },
                         success: function(result) {
                             if (result == "OK") {
-                                Swal.fire({
-                                    // position: 'top-end',
-                                    icon: 'success',
-                                    title: 'บันทึกสำเร็จ',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
+                                // Swal.fire({
+                                //     // position: 'top-end',
+                                //     icon: 'success',
+                                //     title: 'บันทึกสำเร็จ',
+                                //     showConfirmButton: false,
+                                //     timer: 1500
+                                // })
+                                window.location.replace("log_user.php?id_card=<?php echo $id_card; ?>&course_id=<?php echo $course_id; ?>");
+
                             } else {
                                 Swal.fire({
                                     // position: 'top-end',

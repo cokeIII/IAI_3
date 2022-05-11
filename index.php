@@ -93,7 +93,7 @@
 								<img src="images/earth-globe.svg" class="svg" alt="">
 								<div class="hero_box_content">
 									<h2 class="hero_box_title">News</h2>
-									<a href="courses.html" class="hero_box_link">view more</a>
+									<a href="news.php" class="hero_box_link">view more</a>
 								</div>
 							</div>
 						</div>
@@ -391,15 +391,16 @@
 
 								<div class="col-lg-2 order-lg-1 order-2">
 									<div class="event_date d-flex flex-column align-items-center justify-content-center">
-										<div class="event_day">25-29</div>
-										<div class="event_month">เมษายน</div>
-									</div>
+										<!-- <div class="event_day">25-29</div> -->
+										<!-- <div class="event_month">เมษายน</div> -->
+										<div class="event_month">comimg soon</div>
+										</div>
 								</div>
 
 								<div class="col-lg-6 order-lg-2 order-3">
 									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="#">AI อาชีวะ รุ่นที่ 5</a></div>
-										<div class="event_location">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</div>
+										<div class="event_name"><a class="trans_200" href="#">AI อาชีวะ</a></div>
+										<div class="event_location">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ</div>
 										<p>Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</p>
 									</div>
 								</div>

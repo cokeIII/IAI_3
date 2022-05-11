@@ -43,12 +43,14 @@
                         <div class="card-body">
                             <table id="course_regis" class="table table-striped">
                                 <thead>
-                                    <th>รหัสบัตรประชาชน</th>
-                                    <th>ชื่อรายการอบรม</th>
-                                    <th>รายละเอียด</th>
-                                    <th>วันที่</th>
-                                    <th>สถานะ</th>
-                                    <th></th>
+                                    <tr>
+                                        <th>รหัสบัตรประชาชน</th>
+                                        <th>ชื่อรายการอบรม</th>
+                                        <th>รายละเอียด</th>
+                                        <th>วันที่</th>
+                                        <th>สถานะ</th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <?php while ($row = mysqli_fetch_array($res)) { ?>
@@ -67,6 +69,16 @@
                                         </tr>
                                     <?php } ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>รหัสบัตรประชาชน</th>
+                                        <th>ชื่อรายการอบรม</th>
+                                        <th>รายละเอียด</th>
+                                        <th>วันที่</th>
+                                        <th>สถานะ</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -99,7 +111,27 @@
 <script>
     $(document).ready(function() {
         $("#course_regis").DataTable({
-            "scrollX": true
+            "scrollX": true,
+            initComplete: function() {
+                this.api().columns().every(function() {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
+            }
         });
         $(".btnCanCourse").click(function() {
             let course_id = $(this).attr("course_id")

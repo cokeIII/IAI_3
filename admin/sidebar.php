@@ -1,9 +1,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <?php 
-        session_start(); 
-        if(empty($_SESSION["id_card_admin"])){
-            header("location: login.php");
-        }
+    <?php
+    session_start();
+    if (empty($_SESSION["id_card_admin"])) {
+        header("location: login.php");
+    }
     ?>
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -125,7 +125,11 @@
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
+    <li class="nav-item active">
+        <a class="nav-link" href="logout.php">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>ออกจากระบบ</span></a>
+    </li>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

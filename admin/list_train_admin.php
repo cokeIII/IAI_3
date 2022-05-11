@@ -5,7 +5,9 @@
     <?php require_once "header.php"; ?>
 </head>
 <style>
-
+    .text-nowrap {
+        white-space: nowrap;
+    }
 </style>
 
 <body id="page-top">
@@ -56,6 +58,7 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +75,7 @@
                                             <td><a href="detail_course.php?course_id=<?php echo $row["course_id"]; ?>" class="btn btn-info"><i class="fas fa-eye"></i></a></td>
                                             <td><a href="edit_train.php?course_id=<?php echo $row["course_id"]; ?>" class="btn btn-warning">แก้ไข</a></td>
                                             <td><button type="button" course_id="<?php echo $row["course_id"]; ?>" class="btn btn-danger btnDelCourse">ลบ</button></td>
+                                            <td><a href="list_name_conf.php?course_id=<?php echo $row["course_id"]; ?>" class="btn btn-success text-nowrap">ใบรายชื่อ</a></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
