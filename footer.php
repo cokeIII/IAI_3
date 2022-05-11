@@ -37,10 +37,8 @@
 
 					<!-- Logo -->
 					<div class="logo_container">
-						<div class="logo">
-							<img src="images/logo2.png" alt="" width="50" height="auto">
-							<span>IAI</span>
-
+						<div class="">
+							<img src="images/IAIlogo.png" alt="" width="150" height="auto">
 						</div>
 					</div>
 

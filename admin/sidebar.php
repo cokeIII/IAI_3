@@ -1,5 +1,10 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <?php session_start(); ?>
+    <?php 
+        session_start(); 
+        if(empty($_SESSION["id_card_admin"])){
+            header("location: login.php");
+        }
+    ?>
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon">

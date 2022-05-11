@@ -124,6 +124,20 @@
 
                             </div>
                             <div class="col-md-3">
+                                <?php if (!empty($_SESSION["id_card"])) {
+                                    if ($_SESSION["status"] == "user") {
+                                ?>
+                                        <form action="course_regis.php" method="post" class="col-md-4">
+                                            <input type="hidden" name="course_id" value="<?php echo $row["course_id"]; ?>">
+                                            <button class="btn bg-main btn-lg text-white" type="submit" course_id="<?php echo $row["course_id"]; ?>">ลงทะเบียน</button>
+                                        </form>
+                                    <?php }
+                                } else { ?>
+                                    <form action="login.php" method="post" class="col-md-4">
+                                        <input type="hidden" name="course_id" value="<?php echo $row["course_id"]; ?>">
+                                        <button class="btn bg-main btn-lg text-white" type="submit" course_id="<?php echo $row["course_id"]; ?>">ลงทะเบียน</button>
+                                    </form>
+                                <?php } ?>
                                 <div class="box mt-3">
                                     <?php echo "" . $row["period_day"] . " วัน" . $row["period_time"] . " ชั่วโมง"; ?><i class="fa-solid fa-clock-rotate-left float-right"></i>
                                     <hr>
@@ -141,10 +155,10 @@
                                             echo '
                                                 <div class="row mt-1">
                                                     <div class="col-md-3">
-                                                        <a href="teacher_detail.php?id_card='.$value.'"><img src="file_uploads/lecturer/' . $imgLec . '?t=' . time() . '" width="80" height="80" class="rounded border border-white shadow" style="  background-repeat: no-repeat; background-size: cover;"></a>
+                                                        <a href="teacher_detail.php?id_card=' . $value . '"><img src="file_uploads/lecturer/' . $imgLec . '?t=' . time() . '" width="80" height="80" class="rounded border border-white shadow" style="  background-repeat: no-repeat; background-size: cover;"></a>
                                                     </div>
                                                     <div class="col-md-9">
-                                                    <a href="teacher_detail.php?id_card='.$value.'"><p class="ml-1">' . $nameLec . '</p></a>
+                                                    <a href="teacher_detail.php?id_card=' . $value . '"><p class="ml-1">' . $nameLec . '</p></a>
                                                     </div>
                                                 </div>
                                                 ';
@@ -232,3 +246,25 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+        $("#timeTable").DataTable({
+            "scrollX": true
+        });
+        $(".linkDoc").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "log_user_SQL.php",
+                data: {
+                    time_id: $(this).attr('time_id'),
+                    id_card: '<?php echo $id_card; ?>',
+                    status: '<?php echo checkPass($id_card, $course_id); ?>',
+                    detail: 'เปิดเอกสาร',
+                },
+                success: function(result) {
+
+                }
+            });
+        })
+    });
+</script>

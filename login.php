@@ -22,7 +22,7 @@
     }
 
     .mt-login-box {
-        margin-top: 10%;
+        margin-top: 15%;
     }
 
     .text-head {
@@ -37,6 +37,16 @@
 
     .bg-darks {
         background-color: #1a1a1a;
+    }
+
+    .mt-center {
+        margin-top: 10%;
+    }
+
+    .text-l-login{
+        font-size: 16px;
+        color: white !important;
+        font-weight: bold;
     }
 </style>
 
@@ -69,14 +79,16 @@
                             <div class="card-body p-0">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row">
-                                    <div class="col-md-6 bg-darks">
-
+                                    <div class="col-md-6 text-center text-l-login p-5 rounded bg-darks">
+                                        <img src="images/IAIlogo.png" alt="" width="100%" height="auto" class="mt-center">
+                                        <div>ระบบบริหารจัดการศูนย์ปัญญาประดิษฐ์เพื่ออุตสาหกรรม</div>
+                                        <div>วิทยาลัยเทคนิคชลบุรี</div>
                                     </div>
                                     <div class="col-md-6 bg-main p-5 rounded">
                                         <div class="text-head">Log in</div>
                                         <form id="form-login" action="login_SQL.php" method="post">
-                                            <div class="color-primary p-5 mt-3 shadow text-content">
-                                                <div class="row">
+                                            <div class="color-primary p-1 mt-3 shadow text-content">
+                                                <div class="row text-white">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="username">รหัสบัตรประชาชน </label>
@@ -90,8 +102,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn  float-right ml-1">เข้าสู่ระบบ</button>
-                                                <a href="register.php" class="btn  float-right btn-secondary text-white">สมัครสมาชิก</a>
+                                                <button type="submit" class="btn  float-right ml-2 mt-2">เข้าสู่ระบบ</button>
+                                                <a href="register.php" class="btn  float-right btn-secondary text-white mt-2">สมัครสมาชิก</a>
                                             </div>
                                         </form>
                                     </div>

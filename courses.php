@@ -65,13 +65,13 @@
                 <div class="row course_boxes">
                     <?php
                     require_once "admin/function.php";
-                    $sqlCou = "select * from course";
+                    $sqlCou = "select * from course where status = 'on'";
                     $resCou = mysqli_query($conn, $sqlCou);
                     while ($rowCou = mysqli_fetch_array($resCou)) {
                         if ($rowCou["lecturer"]) {
                             $lecturer = explode(",", $rowCou["lecturer"]);
                         } else {
-                            $lecturer[1] = "";
+                            $lecturer[0] = "";
                         }
                         $lecturerArr = getDataLecturer($lecturer[0]);
                     ?>
@@ -80,7 +80,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="file_uploads/img/<?php echo $rowCou["pic"]; ?>" width="auto" height="260">
                                 <div class="card-body text-center">
-                                    <div class="card-title cut-text"><a href="course_detail.php?course_id=<?php echo $rowCou["course_id"];?>"><?php echo $rowCou["course_name"]; ?></a></div>
+                                    <div class="card-title cut-text"><a href="course_detail.php?course_id=<?php echo $rowCou["course_id"]; ?>"><?php echo $rowCou["course_name"]; ?></a></div>
                                     <!-- <div class="card-text"><?php //echo $rowCou["principle"]; 
                                                                 ?></div> -->
                                 </div>

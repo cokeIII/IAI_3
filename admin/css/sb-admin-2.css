@@ -11229,9 +11229,12 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    background: url("../../images/IAIlogo.png");
+    /* width: auto;
+    height: 300px; */
     background-position: center;
-    background-size: cover;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
 }
 
 .bg-register-image {

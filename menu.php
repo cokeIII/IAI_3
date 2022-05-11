@@ -4,13 +4,15 @@
         font-size: 20px;
         color: white;
     }
+    .border-logout{
+        border-left: 2px solid white;
+    }
 </style>
 <div class="header_content d-flex flex-row align-items-center">
     <!-- Logo -->
     <div class="logo_container">
-        <div class="logo">
-            <img src="images/logo2.png" alt="" width="50" height="auto">
-            <span>IAI</span>
+        <div class="">
+            <img src="images/IAIlogo.png" alt="" width="150" height="auto">
         </div>
     </div>
 
@@ -19,11 +21,11 @@
         <div class="main_nav">
             <ul class="main_nav_list">
                 <li class="main_nav_item"><a href="index.php">home</a></li>
-                <li class="main_nav_item"><a href="#">about us</a></li>
+                <!-- <li class="main_nav_item"><a href="#">about us</a></li> -->
                 <li class="main_nav_item"><a href="courses.php">courses</a></li>
                 <!-- <li class="main_nav_item"><a href="elements.html">elements</a></li> -->
-                <li class="main_nav_item"><a href="news.html">news</a></li>
-                <li class="main_nav_item"><a href="contact.html">contact</a></li>
+                <li class="main_nav_item"><a href="news.php">news</a></li>
+                <li class="main_nav_item"><a href="contact.php">contact</a></li>
             </ul>
         </div>
     </nav>
@@ -36,6 +38,10 @@
     <?php } else { ?>
         <a href="profile.php?id_card=<?php echo $_SESSION["id_card"]; ?>">
             <div class="text-name"><?php echo $_SESSION["username"]; ?></div>
+        </a>
+        <div class="border-logout h-100 m-3"></div>
+        <a href="logout.php" class="text-center">
+            <div class="text-name"> Logout</div>
         </a>
     <?php } ?>
 

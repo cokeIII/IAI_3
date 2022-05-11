@@ -41,13 +41,13 @@ $(document).ready(function() {
 
     initHamburger();
     initParallax();
-    initGoogleMap();
+    // initGoogleMap();
+    initMap()
+        /* 
 
-    /* 
+        2. Set Header
 
-    2. Set Header
-
-    */
+        */
 
     function setHeader() {
         if (window.innerWidth < 992) {
@@ -159,36 +159,52 @@ $(document).ready(function() {
 
     */
 
-    function initGoogleMap() {
-        var myLatlng = new google.maps.LatLng(25.498345, -80.352984);
-        var mapOptions = {
-            center: myLatlng,
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            draggable: true,
-            scrollwheel: false,
-            zoomControl: true,
-            zoomControlOptions: {
-                position: google.maps.ControlPosition.RIGHT_CENTER
-            },
-            mapTypeControl: false,
-            scaleControl: false,
-            streetViewControl: false,
-            rotateControl: false,
-            fullscreenControl: true,
-            styles: []
-        }
+    // function initGoogleMap() {
+    //     var myLatlng = new google.maps.LatLng(13.291336247754602, 101.16501216846767);
+    //     var mapOptions = {
+    //         center: myLatlng,
+    //         zoom: 13,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP,
+    //         draggable: true,
+    //         scrollwheel: false,
+    //         zoomControl: true,
+    //         zoomControlOptions: {
+    //             position: google.maps.ControlPosition.RIGHT_CENTER
+    //         },
+    //         mapTypeControl: false,
+    //         scaleControl: false,
+    //         streetViewControl: false,
+    //         rotateControl: false,
+    //         fullscreenControl: true,
+    //         styles: []
+    //     }
 
-        // Initialize a map with options
-        map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        map.panBy(-45, 0);
+    //     // Initialize a map with options
+    //     map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    //     map.panBy(-45, 0);
 
-        // Re-center map after window resize
-        google.maps.event.addDomListener(window, 'resize', function() {
-            setTimeout(function() {
-                google.maps.event.trigger(map, "resize");
-                map.setCenter(myLatlng);
-            }, 1400);
+    //     // Re-center map after window resize
+    //     google.maps.event.addDomListener(window, 'resize', function() {
+    //         setTimeout(function() {
+    //             google.maps.event.trigger(map, "resize");
+    //             map.setCenter(myLatlng);
+    //         }, 1400);
+    //     });
+    // }
+    // Initialize and add the map
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 13.291346689203865, lng: 101.16493706661791 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
         });
     }
 });

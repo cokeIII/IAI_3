@@ -163,12 +163,14 @@
 											<img src="file_uploads/lecturer/<?php echo $lecturerArr["img"]; ?>" class="img-ta">
 										<?php } ?>
 									</div>
-									<div class="course_author_name"><a href="teacher_detail.php?id_card=<?php echo $lecturer[0]; ?>"><?php echo $lecturerArr["name"]; ?></a></div>
+									<div class="course_author_name"><a href="teacher_detail.php?id_card=<?php echo $lecturer[0]; ?>"><?php echo $lecturerArr["name"];
+																																		?></a></div>
 									<div class="course_price d-flex flex-column align-items-center justify-content-center"><span><?php echo ($rowCou["expenses"] > 0 ? $rowCou["expenses"] . " บาท" : "FREE"); ?></span></div>
 								</div>
 							</div>
 						</div>
 					<?php } ?>
+
 				</div>
 			</div>
 		</div>
@@ -193,7 +195,7 @@
 									<br>
 									3. <strong>Apply AI Technology for Industrials</strong><br> มุ่งเน้นความรู้การส่งผ่านข้อมูลด้วยเทคโนโลยีสารสนเทศและการประมวลผล
 								</p>
-								<div class="button button_1 register_button mx-auto trans_200"><a href="#">register now</a></div>
+								<div class="button button_1 register_button mx-auto trans_200"><a href="register.php">register now</a></div>
 							</div>
 						</div>
 
@@ -389,15 +391,15 @@
 
 								<div class="col-lg-2 order-lg-1 order-2">
 									<div class="event_date d-flex flex-column align-items-center justify-content-center">
-										<div class="event_day">18-22</div>
+										<div class="event_day">25-29</div>
 										<div class="event_month">เมษายน</div>
 									</div>
 								</div>
 
 								<div class="col-lg-6 order-lg-2 order-3">
 									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="#">AI อาชีวะ รุ่นที่ 4</a></div>
-										<div class="event_location">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 4</div>
+										<div class="event_name"><a class="trans_200" href="#">AI อาชีวะ รุ่นที่ 5</a></div>
+										<div class="event_location">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</div>
 										<p>Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</p>
 									</div>
 								</div>
