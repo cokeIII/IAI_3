@@ -15,7 +15,7 @@ header("Content-Disposition: attachment; filename=list_name.xls");
 </head>
 <?php
 $course_id = $_GET["course_id"];
-$sql = "select * from course_regis where course_id = '$course_id' and status ='pass'";
+$sql = "select * from course_regis where course_id = '$course_id' and status ='confirmed'";
 $res = mysqli_query($conn, $sql);
 ?>
 
