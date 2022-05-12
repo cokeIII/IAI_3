@@ -322,7 +322,7 @@
 										<p class="testimonials_text">ได้รู้ถึงเทคนิคการเก็บข้อมูลจากสัญญานพื้นฐานต่างๆโดยการเลือกใช้อุปกรณ์ที่เหมาะสม, การส่งข้อมูล, การเชื่อมต่อไปจนถึงการจัดการข้อมูล (Data Management) และการนำข้อมูลที่ได้มาวิเคราะห์พฤติกรรมการทำงานของเครื่องจักร เพื่อตรวจสอบหาลักษณะการทำงานที่ผิดปกติ, การเปลี่ยนแปลงของค่าพารามิเตอร์ต่างๆที่เกิดขึ้นระหว่างการทำงาน หลังจากนั้นนำข้อมูลมาประยุกต์เพื่อสร้าง Algorithm เพื่อใช้ในการแก้ไขปัญหา </p>
 										<div class="testimonial_user">
 											<div class="testimonial_image mx-auto">
-												<img src="images/Capture111.png" alt="">
+												<img src="images/Capture111.jpg" alt="">
 											</div>
 											<div class="testimonial_name">แพรวา เทียนขจร</div>
 											<div class="testimonial_title">นักเรียน</div>
