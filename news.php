@@ -139,7 +139,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="exampleModalLabel">การอบรมหลักสูตรเทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</h3>
@@ -154,7 +154,9 @@
                     นักศึกษารุ่นที่ 3 ได้รับความรู้ไปเต็มๆ กับการเรียนในเรื่องต่างๆ ไม่ว่าจะเป็น Manufacturing and Productivity, Controlling automation with a programmable controller, Data Collection and Middleware, Data analysis and visualization using Power BI, AI Vision and IoT for Smart Factory บอกเลยงานนี้นักศึกษา “มั่นคง มั่งคั่ง และยั่งยืน” แน่นอนจร้า
                 </div>
                 <hr>
-                <img src="" alt="">
+                <img src="images/5/S__83984456.jpg" alt="" width="auto" height="150px" class="ml-1 mt-1">
+                <img src="images/5/S__83984424.jpg" alt="" width="auto" height="150px" class="ml-1 mt-1">
+                <img src="images/5/S__2195573.jpg" alt="" width="auto" height="150px" class="ml-1 mt-1">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
