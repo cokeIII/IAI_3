@@ -16,6 +16,10 @@
         -webkit-backdrop-filter: blur(4.3px);
         border: 1px solid rgba(255, 255, 255, 0.3);
     }
+
+    .text-content {
+        font-size: 18px;
+    }
 </style>
 
 <body>
@@ -59,32 +63,32 @@
                                 <!-- News Post -->
                                 <div class="news_post">
                                     <div class="news_post_image">
-                                        <img src="images/news_1.jpg" alt="https://unsplash.com/@dsmacinnes">
+                                        <img src="images/5/S__83984468.jpg" alt="https://unsplash.com/@dsmacinnes">
                                     </div>
                                     <div class="news_post_top d-flex flex-column flex-sm-row">
                                         <div class="news_post_date_container">
                                             <div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-                                                <div>18</div>
-                                                <div>dec</div>
+                                                <div>30</div>
+                                                <div>เมษายน</div>
                                             </div>
                                         </div>
                                         <div class="news_post_title_container">
                                             <div class="news_post_title">
-                                                <a href="news_post.html">Why do you need a qualification?</a>
+                                                <a href="#">การอบรมหลักสูตรเทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</a>
                                             </div>
                                             <div class="news_post_meta">
-                                                <span class="news_post_author"><a href="#">By Christian Smith</a></span>
-                                                <span>|</span>
-                                                <span class="news_post_comments"><a href="#">3 Comments</a></span>
+                                                <!-- <span class="news_post_author"><a href="#">By Christian Smith</a></span>
+                                                <span>|</span> -->
+                                                <!-- <span class="news_post_comments"><a href="#">3 Comments</a></span> -->
                                             </div>
                                         </div>
                                     </div>
                                     <div class="news_post_text">
-                                        <p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum. Etiam eu purus nec eros varius luctus. Praesent finibus risus facilisis ultricies.</p>
+                                        <p>จากที่สถาบันเทคโนโลยี ไทย-ญี่ปุ่น ร่วมกับ สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa), สถาบันเทคโนโลยีการผลิตสุมิพล (SIMTEC), สถาบันการอาชีวศึกษาภาคตะวันออก, วิทยาลัยเทคนิคระยอง และวิทยาลัยเทคนิคชลบุรี จัดฝึกอบรม “หลักสูตรเทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม (Industrial Artificial Intelligence Technology)”... </p>
                                     </div>
-                                    <div class="news_post_button text-center trans_200">
-                                        <a href="news_post.html">Read More</a>
-                                    </div>
+                                    <button class="news_post_button btn text-center trans_200" data-toggle="modal" data-target="#exampleModal1">
+                                        <h3 class="text-white">Read More</h3>
+                                    </button>
                                 </div>
                             </div>
 
@@ -112,12 +116,8 @@
                                         <h3>Tags</h3>
                                     </div>
                                     <div class="tags d-flex flex-row flex-wrap">
-                                        <div class="tag"><a href="#">Course</a></div>
-                                        <div class="tag"><a href="#">Design</a></div>
-                                        <div class="tag"><a href="#">FAQ</a></div>
-                                        <div class="tag"><a href="#">Teachers</a></div>
-                                        <div class="tag"><a href="#">School</a></div>
-                                        <div class="tag"><a href="#">Graduate</a></div>
+                                        <div class="tag"><a href="#">อบรม</a></div>
+                                        <div class="tag"><a href="#">AI อาชีวะ</a></div>
                                     </div>
                                 </div>
 
@@ -136,3 +136,29 @@
 </body>
 
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">การอบรมหลักสูตรเทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="images/5/S__83984468.jpg" width="auto" height="250px">
+                <div class="text-content"> เพื่อยกระดับขีดความสามารถของนักศึกษา ระดับอาชีวศึกษา ในเขต EEC พัฒนาทักษะให้เป็น “AI อาชีวะ” อย่างมืออาชีพ ผ่านการเรียนรู้อย่างเข้มข้นตลอดระยะเวลา 5 วันเต็ม โดยตลอด 5 วันนี้
+
+                    นักศึกษารุ่นที่ 3 ได้รับความรู้ไปเต็มๆ กับการเรียนในเรื่องต่างๆ ไม่ว่าจะเป็น Manufacturing and Productivity, Controlling automation with a programmable controller, Data Collection and Middleware, Data analysis and visualization using Power BI, AI Vision and IoT for Smart Factory บอกเลยงานนี้นักศึกษา “มั่นคง มั่งคั่ง และยั่งยืน” แน่นอนจร้า
+                </div>
+                <hr>
+                <img src="" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
