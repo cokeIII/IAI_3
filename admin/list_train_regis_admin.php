@@ -150,7 +150,7 @@
                 }
             })
         })
-        $(".btnConCourse").click(function() {
+        $(document).on('click', '.btnConCourse', function() {
             let course_id = $(this).attr("course_id")
             let id_card = $(this).attr("id_card")
             Swal.fire({
