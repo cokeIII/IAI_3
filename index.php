@@ -25,10 +25,10 @@
 	}
 
 	.img-ta {
-		background-size: cover !important;
+		/* background-size: cover !important;
 		background-position: center !important;
 		width: 50px;
-		height: auto;
+		height: auto; */
 	}
 </style>
 
@@ -158,9 +158,9 @@
 								<div class="price_box d-flex flex-row align-items-center">
 									<div class="course_author_image">
 										<?php if (empty($lecturerArr["img"])) { ?>
-											<img src="images/person.png" class="img-ta">
+											<img src="images/person.png" class="img-fluid">
 										<?php } else { ?>
-											<img src="file_uploads/lecturer/<?php echo $lecturerArr["img"]; ?>" class="img-ta">
+											<img src="file_uploads/lecturer/<?php echo $lecturerArr["img"]; ?>" class="img-fluid">
 										<?php } ?>
 									</div>
 									<div class="course_author_name"><a href="teacher_detail.php?id_card=<?php echo $lecturer[0]; ?>"><?php echo $lecturerArr["name"];
@@ -387,31 +387,58 @@
 					<!-- Event Item -->
 					<div class="row event_item">
 						<div class="col">
-							<div class="row d-flex flex-row align-items-end">
+							<?php
+							$sqlUp = "select * from upcoming_events";
+							$resUp = mysqli_query($conn, $sqlUp);
+							$numrow = mysqli_num_rows($resUp);
+							$numrow = 0;
+							if ($numrow > 0) {
+								while ($rowUp = mysqli_fetch_array($resUp)) {
+							?>
+									<div class="row d-flex flex-row align-items-end">
 
-								<div class="col-lg-2 order-lg-1 order-2">
-									<div class="event_date d-flex flex-column align-items-center justify-content-center">
-										<!-- <div class="event_day">25-29</div> -->
-										<!-- <div class="event_month">เมษายน</div> -->
-										<div class="event_month">comimg soon</div>
+										<div class="col-lg-2 order-lg-1 order-2">
+											<div class="event_date d-flex flex-column align-items-center justify-content-center">
+												<!-- <div class="event_day">25-29</div> -->
+												<!-- <div class="event_month">เมษายน</div> -->
+												<div class="event_month"><?php echo $rowUp["status"]; ?></div>
+											</div>
 										</div>
-								</div>
 
-								<div class="col-lg-6 order-lg-2 order-3">
-									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="#">AI อาชีวะ</a></div>
-										<div class="event_location">เทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ</div>
-										<p>Industrial AI Technology, Data Collect and Management for AI Technology, Apply AI Technology for Industrials...</p>
+										<div class="col-lg-6 order-lg-2 order-3">
+											<div class="event_content">
+												<div class="event_name trans_200">
+													<h2><?php echo $rowUp["course_name"]; ?></h2>
+													<!--<a class="trans_200" href="#">--></a>
+												</div>
+												<div class="event_location"></div>
+												<p><?php echo $rowUp["detail"]; ?></p>
+											</div>
+										</div>
+
+										<div class="col-lg-4 order-lg-3 order-1">
+											<div class="event_image">
+												<img src="file_uploads/img_upcoming/<?php echo $rowUp["pic"]; ?>">
+											</div>
+										</div>
+
+									</div>
+								<?php }
+							} else { ?>
+								<div class="row d-flex flex-row align-items-end">
+
+									<div class="col-lg-12 order-lg-2 order-3">
+										<div class="event_content">
+											<div class="event_name trans_200">
+												<h1 class="text-center">Coming Soon...</h1>
+												<!--<a class="trans_200" href="#">--></a>
+											</div>
+											<div class="event_location"></div>
+											<p></p>
+										</div>
 									</div>
 								</div>
-
-								<div class="col-lg-4 order-lg-3 order-1">
-									<div class="event_image">
-										<img src="images/20220225065751pm.jpg" alt="https://unsplash.com/@theunsteady5">
-									</div>
-								</div>
-
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 

@@ -72,7 +72,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3>ตั้งค่าข่าวประชาสัมพันธ์</h3>
+                                    <h3>ตั้งค่าข่าวประชาสัมพันธ์ (News)</h3>
                                     <hr>
                                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalBullhorn">เพิ่มข้อมูล</button>
                                     <table id="bullhorn" class="table" width="100%">
@@ -98,6 +98,43 @@
                                     </table>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>ตั้งค่ารายการอบรมที่จะมาถึง (Upcoming Events)</h3>
+                                    <hr>
+                                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalUpcomingEvents">เพิ่มข้อมูล</button>
+                                    <table id="tableUpcoming" class="table" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ชื่อรายการอบรม</th>
+                                                <th>รายละเอียด</th>
+                                                <th>รูปภาพ</th>
+                                                <th>สถานะ</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sqlUp = "select * from upcoming_events";
+                                            $resUp = mysqli_query($conn, $sqlUp);
+                                            while ($rowUp = mysqli_fetch_array($resUp)) { ?>
+                                                <tr>
+                                                    <td><?php echo $rowUp["course_name"]; ?></td>
+                                                    <td><?php echo $rowUp["detail"]; ?></td>
+                                                    <td> <a target="blank" href="../file_uploads/img_upcoming/<?php echo $rowUp["pic"]; ?>">รูปภาพ</a></td>
+                                                    <td><?php echo $rowUp["status"]; ?></td>
+                                                    <td><button id="<?php echo $rowUp["id"]; ?>" class="btnDelUpcoming btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -226,6 +263,51 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade " id="modalUpcomingEvents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="picBullLabel">เพิ่มข้อมูลรายการอบรมที่กำลังจะมาถึง</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="upcoming_add.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="">
+                            <h4>ชื่อรายการอบรม</h4>
+                        </label>
+                        <input class="form-control" type="text" name="name_event" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="">
+                            <h4>รายละเอียด</h4>
+                        </label>
+                        <textarea class="form-control" name="detail_event" id="" cols="30" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">
+                            <h4>เพิ่มรูปภาพ</h4>
+                        </label>
+                        <input class="form-control" type="file" name="pic_event" multiple accept="image/*" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="">
+                            <h4>สถานะ</h4>
+                        </label>
+                        <input class="form-control" type="text" name="status_event" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">เพิ่มข้อมูล</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function() {
         $(".btnPicPath").click(function() {
@@ -247,6 +329,9 @@
             "scrollX": true
         });
         $("#bullhorn").DataTable({
+            "scrollX": true
+        });
+        $("#tableUpcoming").DataTable({
             "scrollX": true
         });
         $(".btnDelSlide").click(function() {
@@ -275,6 +360,21 @@
                 if (result.isConfirmed) {
                     $.redirect('bullhorn_del.php', {
                         'pub_id': pub_id,
+                    });
+                }
+            })
+        })
+        $(".btnDelUpcoming").click(function() {
+            let id = $(this).attr("id")
+            Swal.fire({
+                title: 'ลบรายการอบรมที่กำลังจะมาถึง ?',
+                showCancelButton: true,
+                confirmButtonText: 'ยืนยัน',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.redirect('upcoming_del.php', {
+                        'id': id,
                     });
                 }
             })

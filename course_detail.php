@@ -154,10 +154,10 @@
                                             $nameLec = $dataArr["name"];
                                             echo '
                                                 <div class="row mt-1">
-                                                    <div class="col-md-3">
-                                                        <a href="teacher_detail.php?id_card=' . $value . '"><img src="file_uploads/lecturer/' . $imgLec . '?t=' . time() . '" width="80" height="80" class="rounded border border-white shadow" style="  background-repeat: no-repeat; background-size: cover;"></a>
+                                                    <div class="col-md-4">
+                                                        <a href="teacher_detail.php?id_card=' . $value . '"><img src="file_uploads/lecturer/' . $imgLec . '?t=' . time() . '"  class="rounded border border-white shadow img-fluid mx-auto d-block" style=""></a>
                                                     </div>
-                                                    <div class="col-md-9">
+                                                    <div class="col-md-8">
                                                     <a href="teacher_detail.php?id_card=' . $value . '"><p class="ml-1">' . $nameLec . '</p></a>
                                                     </div>
                                                 </div>
