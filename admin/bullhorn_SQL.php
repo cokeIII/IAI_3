@@ -6,6 +6,7 @@ $allowTypes = array('jpg', 'png', 'jpeg', 'svg', 'gif', 'PNG', 'JPG', 'JPEG', 'G
 $fileNames = array_filter($_FILES['pic_path']['name']);
 $topic = $_POST["topic"];
 $detail = $_POST["detail"];
+$tag = explode(",",$_POST["tag"]);
 if (!empty($fileNames)) {
     foreach ($_FILES['pic_path']['name'] as $key => $val) {
         // File upload path 
@@ -26,7 +27,7 @@ if (!empty($fileNames)) {
             $errorUploadType .= $_FILES['pic_path']['name'][$key] . ' | ';
         }
     }
-    $sql = "insert into public_relations (topic,pic_path,detail) value('$topic','" . json_encode($fileNames) . "','$detail')";
+    $sql = "insert into public_relations (topic,pic_path,detail,tag) value('$topic','" . json_encode($fileNames) . "','$detail','".json_encode($tag)."')";
     $res = mysqli_query($conn, $sql);
     if ($res) {
         echo header("location: bullhorn.php");

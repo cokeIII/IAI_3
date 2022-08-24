@@ -20,6 +20,12 @@
     .text-content {
         font-size: 18px;
     }
+
+    #newDetail:not(.show) {
+        display: block;
+        height: 8rem;
+        overflow: hidden;
+    }
 </style>
 
 <body>
@@ -29,7 +35,10 @@
         <!-- Header -->
 
         <header class="header d-flex flex-row">
-            <?php require_once "menu.php"; ?>
+            <?php
+            require_once "menu.php";
+            require_once "admin/function.php";
+            ?>
         </header>
 
         <!-- Menu -->
@@ -61,6 +70,46 @@
 
                             <div class="news_posts">
                                 <!-- News Post -->
+                                <?php
+                                $sql = "select * from public_relations";
+                                $res = mysqli_query($conn, $sql);
+                                while ($row = mysqli_fetch_array($res)) {
+                                    $pic_path = json_decode($row["pic_path"]);
+                                    $dateNew = explode(" ", DateThai(explode(" ", $row["time_stamp"])[0]));
+
+                                ?>
+                                    <div class="news_post">
+                                        <div class="news_post_image">
+                                            <img src="file_uploads/bullhorn/<?php echo $pic_path[0]; ?>">
+                                        </div>
+                                        <div class="news_post_top d-flex flex-column flex-sm-row">
+                                            <div class="news_post_date_container">
+                                                <div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+                                                    <div><?php echo $dateNew[0]; ?></div>
+                                                    <div><?php echo $dateNew[1]; ?></div>
+                                                    <div><?php echo $dateNew[2]; ?></div>
+                                                </div>
+                                            </div>
+                                            <div class="news_post_title_container">
+                                                <div class="news_post_title">
+                                                    <a href="#"><?php echo $row["topic"]; ?></a>
+                                                </div>
+                                                <div class="news_post_meta">
+                                                    <!-- <span class="news_post_author"><a href="#">By Christian Smith</a></span>
+                                                <span>|</span> -->
+                                                    <!-- <span class="news_post_comments"><a href="#">3 Comments</a></span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="news_post_text">
+                                            <p id="newDetail"><?php echo $row["detail"]; ?></p>
+                                        </div>
+                                        <button class="news_post_button btn text-center trans_200 btnRead" topic="<?php echo $row["topic"]; ?>" pic_path='<?php echo $row["pic_path"]; ?>' detail="<?php echo $row["detail"]; ?>">
+                                            <h3 class="text-white">Read More</h3>
+                                        </button>
+                                    </div>
+
+                                <?php } ?>
                                 <div class="news_post">
                                     <div class="news_post_image">
                                         <img src="images/5/S__83984468.jpg" alt="https://unsplash.com/@dsmacinnes">
@@ -164,3 +213,51 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="newsDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="newsDetailLabel">การอบรมหลักสูตรเทคโนโลยีปัญญาประดิษฐ์ในภาคอุตสาหกรรม AI อาชีวะ รุ่นที่ 5</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="img1" src="" width="auto" height="250px">
+                <div class="text-content" id="newsContent">
+                </div>
+                <hr>
+                <div id="pic_news_show" class="row">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.btnRead', function() {
+            let topic = $(this).attr("topic")
+            let pic_path = JSON.parse($(this).attr("pic_path"))
+            let detail = $(this).attr("detail")
+            let res = ""
+            $("#newsDetailLabel").html(topic)
+            $("#img1").attr("src","file_uploads/bullhorn/"+pic_path[0])
+            $("#newsContent").html(detail)
+            pic_path.shift()
+            pic_path.forEach(element => {
+                res +=
+                    '<div class="col-md-4">' +
+                    '<img class="d-block w-100" src="file_uploads/bullhorn/' + element + '">' +
+                    '</div>'
+            });
+            $("#pic_news_show").html(res)
+            $("#newsDetail").modal("show")
+        })
+    })
+</script>

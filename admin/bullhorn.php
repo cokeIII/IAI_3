@@ -4,6 +4,13 @@
 <head>
     <?php require_once "header.php"; ?>
 </head>
+<style>
+    .bg-tag {
+        background-color: #730b19;
+        font-size: 24px;
+        color: white;
+    }
+</style>
 
 <body id="page-top">
 
@@ -74,7 +81,7 @@
                                 <div class="col-md-12">
                                     <h3>ตั้งค่าข่าวประชาสัมพันธ์ (News)</h3>
                                     <hr>
-                                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalBullhorn">เพิ่มข้อมูล</button>
+                                    <button class="btn btn-primary mb-3" id="addBullhorn">เพิ่มข้อมูล</button>
                                     <table id="bullhorn" class="table" width="100%">
                                         <thead>
                                             <tr>
@@ -90,7 +97,7 @@
                                             while ($rowBull = mysqli_fetch_array($resBull)) { ?>
                                                 <tr>
                                                     <td><?php echo $rowBull["topic"]; ?></td>
-                                                    <td><button class="btn btn-info btnPicPath" topic="<?php echo $rowBull["topic"]; ?>" detail="<?php echo $rowBull["detail"]; ?>" pic_path='<?php echo $rowBull["pic_path"]; ?>'>รายละเอียด</button></td>
+                                                    <td><button class="btn btn-info btnPicPath" tag='<?php echo $rowBull["tag"]; ?>' topic="<?php echo $rowBull["topic"]; ?>" detail="<?php echo $rowBull["detail"]; ?>" pic_path='<?php echo $rowBull["pic_path"]; ?>'>รายละเอียด</button></td>
                                                     <td><button pub_id="<?php echo $rowBull["pub_id"]; ?>" class="btnDelBullhorn btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                 </tr>
                                             <?php } ?>
@@ -164,7 +171,7 @@
 </body>
 
 </html>
-<!-- Modal -->
+<!-- Modal Slide-->
 <div class="modal fade" id="modalSlide" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -195,7 +202,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal News-->
 <div class="modal fade" id="modalBullhorn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -228,10 +235,10 @@
                         <textarea class="form-control" name="detail" id="" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="detail">
-                            <h4>รายละเอียด</h4>
+                        <label for="tag">
+                            <h4>tag</h4>
                         </label>
-                        <textarea class="form-control" name="detail" id="" cols="30" rows="10" required></textarea>
+                        <input type="text" name="tag" id="tag" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary float-right">เพิ่มข้อมูล</button>
                 </form>
@@ -242,7 +249,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal picBull Show detail-->
 <div class="modal fade " id="picBull" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
@@ -253,7 +260,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div id="picBullShow">
+                <div id="picBullShow" class="p-2">
 
                 </div>
             </div>
@@ -263,7 +270,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal UpEvent-->
 <div class="modal fade " id="modalUpcomingEvents" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg" role="document">
         <div class="modal-content">
@@ -310,19 +317,41 @@
 </div>
 <script>
     $(document).ready(function() {
+        $("#addBullhorn").click(function() {
+            // $.ajax({
+            //     type: 'POST',
+            //     url: 'getTag.php',
+            //     data: {
+            //         act: 'getTag'
+            //     },
+            //     dataType: 'json',
+            //     success: function(data) {
+            //         if (data.length != 0) {
+            //             let tag = data.tagData
+            //             // autocomplete(document.getElementById("tag"), tag)
+            //         }
+
+            //     }
+            // });
+            $("#modalBullhorn").modal('show')
+        })
         $(".btnPicPath").click(function() {
             let pic_path = JSON.parse($(this).attr("pic_path"))
+            let tag = JSON.parse($(this).attr("tag"))
             let detail = $(this).attr("detail")
             let topic = $(this).attr("topic")
-            $res = '<h3>' + topic + '</h3>' + '<hr>' + detail + '<hr><div class="row">';
+            let res = '<h3>' + topic + '</h3>' + '<hr>' + detail + '<hr><div class="row">';
             pic_path.forEach(element => {
-                $res +=
+                res +=
                     '<div class="col-md-4">' +
                     '<img class="d-block w-100" src="../file_uploads/bullhorn/' + element + '">' +
                     '</div>'
             });
-            $res += '</div>';
-            $("#picBullShow").html($res)
+            res += '<hr><h4>Tag</h4>'
+            tag.forEach(element => {
+                res += '<div class="bg-tag ml-3">' + element + '</div>'
+            });
+            $("#picBullShow").html(res)
             $('#picBull').modal('show')
         })
         $("#slide").DataTable({

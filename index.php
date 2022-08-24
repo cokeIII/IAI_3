@@ -391,7 +391,6 @@
 							$sqlUp = "select * from upcoming_events";
 							$resUp = mysqli_query($conn, $sqlUp);
 							$numrow = mysqli_num_rows($resUp);
-							$numrow = 0;
 							if ($numrow > 0) {
 								while ($rowUp = mysqli_fetch_array($resUp)) {
 							?>
