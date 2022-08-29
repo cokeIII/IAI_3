@@ -84,6 +84,7 @@
                             where course_name like '%$search_form_name%' 
                             and type_name like '%$search_form_category%'
                             and status = 'on'";
+
                         } else if (!empty($_POST["search_form_name"]) && !empty($_POST["search_form_degree"])) {
                             $search_form_name = $_POST["search_form_name"];
                             $search_form_degree = $_POST["search_form_degree"];
@@ -92,6 +93,7 @@
                             where course_name like '%$search_form_name%' 
                             and target like '%$search_form_degree%'
                             and status = 'on'";
+
                         } else if (!empty($_POST["search_form_category"]) && !empty($_POST["search_form_degree"])) {
                             $search_form_category = $_POST["search_form_category"];
                             $search_form_degree = $_POST["search_form_degree"];
@@ -100,18 +102,21 @@
                             where type_name like '%$search_form_category%'
                             and target like '%$search_form_degree%'
                             and status = 'on'";
+
                         } else if (!empty($_POST["search_form_name"])) {
                             $search_form_name = $_POST["search_form_name"];
                             $sqlCou = "select * from course c
                             inner join course_type ct on c.course_type = ct.type_id  
                             where course_name like '%$search_form_name%' 
                             and status = 'on'";
+
                         } else if (!empty($_POST["search_form_category"])) {
                             $search_form_category = $_POST["search_form_category"];
                             $sqlCou = "select * from course c
                             inner join course_type ct on c.course_type = ct.type_id  
                             where type_name like '%$search_form_category%'
                             and status = 'on'";
+
                         } else if (!empty($_POST["search_form_degree"])) {
                             $search_form_degree = $_POST["search_form_degree"];
                             $sqlCou = "select * from course c
