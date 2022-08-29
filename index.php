@@ -209,10 +209,10 @@
 							<div class="search_background" style="background-image:url(images/search_background.jpg);"></div>
 							<div class="search_content text-center">
 								<h1 class="search_title">Search for your course</h1>
-								<form id="search_form" class="search_form" action="post">
-									<input id="search_form_name" class="input_field search_form_name" type="text" placeholder="Course Name" required="required" data-error="Course name is required.">
-									<input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Category">
-									<input id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Degree">
+								<form action="courses.php" id="search_form" class="search_form" action="post">
+									<input name="search_form_name" id="search_form_name" class="input_field search_form_name" type="text" placeholder="Course Name" required="required" data-error="Course name is required.">
+									<input name="search_form_category" id="search_form_category" class="input_field search_form_category" type="text" placeholder="Category">
+									<input name="search_form_degree" id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Degree">
 									<button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">search course</button>
 								</form>
 							</div>
