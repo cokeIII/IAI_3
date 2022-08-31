@@ -48,7 +48,7 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 <h2>คอร์สอบรม</h2>
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo getCourse_dash(); ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo (empty(getCourse_dash()) ? "0" : getCourse_dash()); ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-book-open fa-2x text-gray-300"></i>
@@ -67,7 +67,7 @@
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 <h2>สมาชิก</h2>
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo getUsers_dash() . " คน"; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo (empty(getUsers_dash()) ? "0" : getUsers_dash()) . " คน"; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-friends fa-2x text-gray-300"></i>
@@ -112,7 +112,7 @@
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 <h4>ลงทะเบียนคอร์สอบรม</h4>
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo getUsers_regis_dash() . " คน"; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo (empty(getUsers_regis_dash()) ? "0" : getUsers_regis_dash()) . " คน"; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-friends fa-2x text-gray-300"></i>
@@ -131,7 +131,7 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 <h4>สมาชิกที่ได้รับใบประกาศ</h4>
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo getUsers_success_dash() . " คน"; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo (empty(getUsers_success_dash()) ? "0" : getUsers_success_dash()) . " คน"; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-file-certificate fa-2x text-gray-300"></i>
