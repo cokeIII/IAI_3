@@ -73,12 +73,9 @@ if (!empty($_POST)) {
             $data["label"][] = $row["name"];
         }
 
-        $sql2 = "select i.name as iName,count(u.id_card) as numUsers, i.name 
-        from users u
-        inner join industry i on i.id = u.industry order by i.id
-        ";
-        $res2 = mysqli_query($conn,$sql2);
-        while($row2 = mysqli_fetch_array($res2)){
+        $sql2 = "select i.name as iName,count(u.id_card) as numUsers from users u inner join industry i on i.id = u.industry group by i.name order by i.id";
+        $res2 = mysqli_query($conn, $sql2);
+        while ($row2 = mysqli_fetch_array($res2)) {
             $data["val"][$row2["iName"]] = $row2["numUsers"];
         }
 
