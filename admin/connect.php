@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "chontech2021";
+$password = "";
 $database = "iai";
 
 // Create connection
